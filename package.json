@@ -4,6 +4,7 @@
   "description": "",
   "main": "serv.js",
   "dependencies": {
+    "body-parser": "^1.18.3",
     "bootstrap": "^4.2.1",
     "express": "^4.16.4",
     "html": "^1.0.0",
