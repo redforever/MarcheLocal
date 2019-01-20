@@ -1,0 +1,72 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+            <meta charset="utf-8" />
+            <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+           <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+            <script src="./socket.io/socket.io.js"></script>
+
+<title>Canvas</title>
+
+<style>
+canvas{
+background-color : #8c7ae6;
+}
+</style>
+
+<script>
+  var x=70;
+  var y=70;
+
+//fonction qui dessine un cercle
+function fillCircle()
+ {
+   
+  var canvas = document.getElementById("canva");
+  var context = canvas.getContext("2d");
+  context.clearRect(0, 0, canvas.width, canvas.height);
+  context.beginPath();
+  context.fillStyle="#FF4422"
+  context.arc(x, y, 70, 0, 2 * Math.PI);
+  context.fill();
+ }
+
+var socket = io.connect('localhost:8080'); //ceer la socket  
+
+                $(function() {	                          
+                          
+			   socket.on('position', function(message) {//je recois le deplacement du serveur
+                                 if(message=='Haut'){ //si je clique sur Haut je bouge le cercle vers le haut
+                                 y=y-50;
+                                 fillCircle();
+                                }
+
+			     if(message=='Bas'){//vers le bas
+                                y=y+50;
+                                fillCircle();
+				}
+				
+		        	if(message=='Gauche'){// vers la gauche
+                                 x=x-50;
+                                 fillCircle();
+				}
+
+		        	if(message=='Droite'){//vers la droite
+                                 x=x+50;
+                                 fillCircle();
+				}
+
+                            
+                               
+                            });                             
+ 
+                });
+
+</script>
+</head>
+<body>
+<canvas id="canva" width="800" height="800" ></canvas>
+<script>fillCircle();</script>
+</body>
+</html>
+

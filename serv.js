@@ -5,15 +5,19 @@ var  express = require('express'),
    
 
 var port = process.env.PORT || 8080;
+ 
+ app.use(express.static(__dirname + '/public'));
+ 
+  
 
 app.use(express.static(__dirname));
 
 app.get('/Acc', function (req, res) {/* si je saisie l adresse localhost:8081/Acc je charge la page indexAcc.html*/
-  res.sendfile(__dirname + '/indexAcc.html');
+  res.sendfile(__dirname + '/public/indexAcc.html');
 });
 
 app.get('/Can', function (req, res) {/* si je saisie l adresse localhost:8081/Acc je charge la page indexCan.html*/
-  res.sendfile(__dirname + '/indexCan.html');
+  res.sendfile(__dirname + '/public/indexCan.html');
 });
 
 io.sockets.on('connection', function (socket) {//je demarre la connexion
