@@ -1,0 +1,22 @@
+{
+  "name": "testbal2",
+  "description": "",
+  "main": "serv.js",
+  "authors": [
+    "red red"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/redforever/test",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery-3.3.1.min": "https://code.jquery.com/jquery-3.3.1.min.js",
+    "jquery": "^3.3.1",
+    "masonry-layout": "desandro/masonry#^4.2.2"
+  }
+}
