@@ -3,10 +3,12 @@ var  express = require('express'),
      server = require('http').createServer(app),
      io = require('socket.io').listen(server);
      var $ = require('jquery');
+    var path = require('path'); 
 
 var port = process.env.PORT || 8080;
+
+app.use(express.static(path.join(__dirname, '/public')));
  
- app.use(express.static(__dirname + '/public'));
  
   
 
