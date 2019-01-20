@@ -1,14 +1,12 @@
-var a = require('bootstrap');
-//var k = require jquery
-//var t = require jquery_ujs
-//var j = require jquery-ui
-
-var app = require('express')(),
-    server = require('http').createServer(app),
-    io = require('socket.io').listen(server);
-  
+var  express = require('express'),
+     app = express(),
+     server = require('http').createServer(app),
+     io = require('socket.io').listen(server);
+   
 
 var port = process.env.PORT || 8080;
+
+app.use(express.static(__dirname));
 
 app.get('/Acc', function (req, res) {/* si je saisie l adresse localhost:8081/Acc je charge la page indexAcc.html*/
   res.sendfile(__dirname + '/indexAcc.html');
